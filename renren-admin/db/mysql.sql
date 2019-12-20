@@ -1,4 +1,9 @@
+CREATE DATABASE `renren_security` DEFAULT  CHARACTER SET utf8;
+
+USE `renren_security`;
+
 -- 菜单
+DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
   `menu_id` bigint NOT NULL AUTO_INCREMENT,
   `parent_id` bigint COMMENT '父菜单ID，一级菜单为0',
@@ -12,6 +17,7 @@ CREATE TABLE `sys_menu` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='菜单管理';
 
 -- 部门
+DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
   `dept_id` bigint NOT NULL AUTO_INCREMENT,
   `parent_id` bigint COMMENT '上级部门ID，一级部门为0',
@@ -22,6 +28,7 @@ CREATE TABLE `sys_dept` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='部门管理';
 
 -- 系统用户
+DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `user_id` bigint NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL COMMENT '用户名',
@@ -37,6 +44,7 @@ CREATE TABLE `sys_user` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='系统用户';
 
 -- 角色
+DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `role_id` bigint NOT NULL AUTO_INCREMENT,
   `role_name` varchar(100) COMMENT '角色名称',
@@ -47,6 +55,7 @@ CREATE TABLE `sys_role` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色';
 
 -- 用户与角色对应关系
+DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `user_id` bigint COMMENT '用户ID',
@@ -55,6 +64,7 @@ CREATE TABLE `sys_user_role` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='用户与角色对应关系';
 
 -- 角色与菜单对应关系
+DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `role_id` bigint COMMENT '角色ID',
@@ -63,6 +73,7 @@ CREATE TABLE `sys_role_menu` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色与菜单对应关系';
 
 -- 角色与部门对应关系
+DROP TABLE IF EXISTS `sys_role_dept`;
 CREATE TABLE `sys_role_dept` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `role_id` bigint COMMENT '角色ID',
@@ -72,6 +83,7 @@ CREATE TABLE `sys_role_dept` (
 
 
 -- 系统配置信息
+DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE `sys_config` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `param_key` varchar(50) COMMENT 'key',
@@ -83,6 +95,7 @@ CREATE TABLE `sys_config` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='系统配置信息表';
 
 -- 数据字典
+DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL COMMENT '字典名称',
@@ -97,6 +110,7 @@ CREATE TABLE `sys_dict` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='数据字典表';
 
 -- 系统日志
+DROP TABLE IF EXISTS `sys_log`;
 CREATE TABLE `sys_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COMMENT '用户名',
