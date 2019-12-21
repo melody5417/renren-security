@@ -68,6 +68,12 @@ public class ShiroConfig {
     }
 
 
+    /***
+     * 配置为 anon 匿名，不经过 shiro 处理。
+     * 配置为 authc 认证，经过 shiro 处理。
+     * @param securityManager
+     * @return ShiroFilterFactoryBean
+     */
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();

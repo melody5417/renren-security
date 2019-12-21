@@ -95,6 +95,7 @@ public class UserRealm extends AuthorizingRealm {
 			throw new LockedAccountException("账号已被锁定,请联系管理员");
 		}
 
+		// 要加盐，其目的是防止被拖库后，黑客轻易的（通过密码库对 比），就能拿到你的密码。
 		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), getName());
 		return info;
 	}

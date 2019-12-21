@@ -43,6 +43,9 @@ public class DataFilterAspect {
     @Autowired
     private SysRoleDeptService sysRoleDeptService;
 
+    /**
+     * 定义连接点
+     */
     @Pointcut("@annotation(io.renren.common.annotation.DataFilter)")
     public void dataFilterCut() {
 
