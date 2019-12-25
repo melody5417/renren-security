@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * XSS过滤
- *
+ * 自定义 xss 过滤器，用来过滤所有请求。
  * @author Mark sunlightcs@gmail.com
  */
 public class XssFilter implements Filter {
